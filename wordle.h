@@ -17,9 +17,6 @@
  * @param [in] dict - Dictionary of strings of legal words
  * @return std::set<std::string> - Set of all words that meet the criteria
  */
-std::set<std::string> wordle(
-    const std::string& in,
-    const std::string& floating,
-    const std::set<std::string>& dict);
+std::set<std::string> wordle(const std::string& in, const std::string& floating, const std::set<std::string>& dict);
 
 #endif

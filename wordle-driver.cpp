@@ -10,23 +10,43 @@
 #include "dict-eng.h"
 using namespace std;
 
+
+/*
+std::set<std::string> expected = {
+		"corrosion",
+		"recursion"
+	};
+std::set<std::string> actual = wordle("-----sion", "rcr", dict);
+testing::AssertionResult result = compareResults(expected, actual);
+EXPECT_TRUE(result);
+
+./wordle-driver -----sion rcr
+
+./wordle-driver -i-- dn
+*/
 int main(int argc, char* argv[])
 {
-    if(argc < 2){
+    if(argc < 2)
+    {
         cout << "Please provide an initial string (e.g. \"s---ng\")"
                 " and optional string of floating characters." << endl;
         return 1;
     }
-    const std::set<std::string>& dict = readDictWords("dict-eng.txt");    
+    const std::set<std::string>& dict = readDictWords("dict-eng.txt");
+
     string in(argv[1]);
     string floatingChars;
-    if(argc > 2){
-        floatingChars = argv[2];
+    if(argc > 2)
+    {
+      floatingChars = argv[2];
     }
+
     std::set<string> answers;
     answers = wordle(in, floatingChars, dict);
-    for(auto s : answers){
-        cout << s << endl;
+
+    for(auto s : answers)
+    {
+      cout << s << endl;
     }
     return 0;
 }
